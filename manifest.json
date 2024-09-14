@@ -1,0 +1,22 @@
+{
+  "manifest_version": 2,
+  "name": "Colab Execution Checker",
+  "version": "1.0",
+  "description": "Checks for executing cells in Google Colab",
+  "permissions": [
+    "activeTab",
+    "scripting",
+    "https://colab.research.google.com/*"
+  ],
+  "background": {
+    "scripts": ["background.js"],
+    "persistent": false
+  },
+  "content_scripts": [
+    {
+      "matches": ["https://colab.research.google.com/*"],
+      "js": ["content.js"],
+      "run_at": "document_idle"
+    }
+  ]
+}
